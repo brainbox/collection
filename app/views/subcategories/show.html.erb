@@ -1,0 +1,24 @@
+<% if @subcategory.nil? %>
+<p> You can not view Another users Subcategory</p>
+
+<% else %>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Name:</b>
+  <%= @subcategory.name %>
+</p><br/>
+
+<p>
+  <b>Category:</b>
+  <% unless @subcategory.category.nil? %>
+  <%= @subcategory.category.name %>
+  <% end %>
+</p><br/>
+
+<%= link_to 'Place Subcategory Into a Category ', edit_subcategory_path(@subcategory) %> |
+<%= link_to 'Back', subcategories_path %> |
+<%= link_to "Back To Proflie Page", current_user %>
+<% end %>

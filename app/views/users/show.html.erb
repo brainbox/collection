@@ -1,15 +1,44 @@
+
+
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
       <h1>
         
         <%= @user.name %>
-      </h1>
+      </h1><br/>
+	 <% unless @user.items.empty? %>
+	 <table class="pretty-table">
+
+	 </table>
+        <table class="pretty-table" summary="User items">
+		<tr>
+	<th class="pretty-table">My Items</th>
+	<th class="pretty-table">Comments</th>
+	<th class="pretty-table">Category</th>
+	<th class="pretty-table">Subcategory</th>
+	<th class="pretty-table">View Item</th>
+	<th class="pretty-table">Edit Item</th>
+	<th class="pretty-table">Destroy Item</th>
+	
+	</tr>
+          <%= render @items %>
+        </table>
+        <%= will_paginate @items %>
+      <% end %>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
-    </td>
+      <%= link_to 'Create New Category', new_category_path %><br/>
+	 <%= link_to 'Create New Subcategory', new_subcategory_path %><br/>
+	 <%= link_to 'Create New Item', new_item_path %><br/>
+	 <strong>Number of Items: </strong> <%= @user.items.count %>
+
+	</td>
   </tr>
 </table>
-
+<h3>Enter keyword</h3>
+<form action ="http://localhost:3000/items/search" method="post">
+<input name = "key" type="input" />
+<input value="Send" type="submit"/>
+</form>

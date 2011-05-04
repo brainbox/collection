@@ -1,0 +1,67 @@
+<html>
+
+<head>
+
+<title>Edit Subcategory</title>
+
+</head>
+
+<body>
+
+<h1>Edit Subcategory</h1>
+
+<form action="../update/<%= @subcategory.id %>" method="POST"">
+
+<input id="subcategory_id" name="subcategory[id]" size="30"
+
+type="hidden" value="<%= @subcategory.id %>" />
+
+<p><b>Title</b><br>
+
+<input id="subcategory_name" name="subcategory[name]" size="30"
+
+type="text" value="<%= @subcategory.name %>" />
+
+</p>
+
+
+<p><b>Category:</b><br>
+
+<select name="subcategory[category_id]">
+
+<% @categories.each do |category| %>
+
+<option value="<%= category.id %>"
+
+<%= ' selected' if category.id == @subcategory.category_id %>>
+
+<%= category.name %>
+
+</option>
+
+<% end %>
+
+</select></p>
+
+
+
+<input type="submit" value="Update" />
+
+</form>
+
+<a href="/subcategories/show/<%= @subcategory.id %>">
+
+Show
+
+</a> 
+
+<a href="/subcategories/">
+
+Back
+
+</a>
+
+</body>
+
+</html>
+

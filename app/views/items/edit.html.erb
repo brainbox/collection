@@ -1,0 +1,80 @@
+<html>
+
+<head>
+
+<title>Edit Item</title>
+
+</head>
+
+<body>
+
+<h1>Edit Items</h1>
+
+<form action="../update/<%= @item.id %>" method="POST"">
+
+<input id="item_id" name="item[id]" size="30"
+
+type="hidden" value="<%= @item.id %>" />
+
+<p><b>Title</b><br>
+
+<input id="item_name" name="item[name]" size="30"
+
+type="text" value="<%= @item.name %>" />
+
+</p>
+
+
+<p><b>Subcategory:</b><br>
+
+<select name="item[subcategory_id]">
+
+<% @subcategories.each do |subcategory| %>
+
+<option value="<%= subcategory.id %>"
+
+<%= ' selected' if subcategory.id == @item.subcategory_id %>>
+
+<%= subcategory.name %>
+
+</option>
+
+<% end %>
+
+</select></p>
+
+
+
+
+<p><b>Comments</b><br>
+
+<textarea cols="40" id="item_comments"
+
+name="item[comments]"
+
+rows="10" wrap="virtual">
+
+<%= @item.comments %>
+
+</textarea> </p>
+
+
+<input type="submit" value="Update" />
+
+</form>
+
+<a href="/items/show/<%= @item.id %>">
+
+Show
+
+</a> 
+
+<a href="/items/">
+
+Back
+
+</a>
+
+</body>
+
+</html>

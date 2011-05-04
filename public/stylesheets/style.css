@@ -10,35 +10,34 @@ Body{
 }
 
 div.container{
-	width:710px;
+	width:1110px;
 	margin: 0 auto;
-	padding-top: 20px;
 	background-color:#fff;
 }
 div.innerContainer{
 	position:relative;
 	float:left;
-	width:680px;
+	width:1080px;
 	background-color:#b3c9ea;
 	padding-top: 20px;
-	margin-top: 20px;
 	height:0 auto;
 	padding-left: 30px;
+	padding-bottom: 30px;
 }
 
 header {
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 header img {
-  padding: 1em;
+  
   background: #fff;
 }
 
 section {
-  margin-top: 1em;
+  
   font-size: 120%;
-  padding: 20px;
+  
   background: #fff;
 }
 
@@ -65,12 +64,14 @@ a:visited {
 
 nav {
   float: right;
+  
 }
 
 nav {
   background-color: white;
   padding: 0 0.7em;
   white-space: nowrap;
+  padding-top: 60px;
 }
 
 nav ul {
@@ -143,12 +144,12 @@ table.profile {
 }
 
 td.main {
-  width: 70%;
+  width: 80%;
   padding: 1em;
 }
 
 td.sidebar {
-  width: 30%;
+  width: 20%;
   padding: 1em;
   vertical-align: top;
   background: #ffc;
@@ -205,3 +206,19 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+table.pretty-table { border-collapse: collapse;
+border:1px solid #000000; 
+border:1px;
+margin-left:0px;
+}
+table.pretty-table th{
+ border: 2px solid #000000; 
+ padding: 15px;
+ font-weight:bold;
+
+ }
+table.pretty-table td {
+border: 2px solid #000000; 
+ padding: 15px;
+ 

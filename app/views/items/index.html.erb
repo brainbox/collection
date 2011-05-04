@@ -1,0 +1,40 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+	<th>Category Name</th>
+	<th>Subcategory Name</th>
+    <th>Item Name</th>
+    <th>Item Details</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+	
+	<td>
+	<% unless item.subcategory.nil? %>
+	<%= item.subcategory.name %>
+	<% end %></td>
+	<td>	
+<% unless item.subcategory.nil? %>
+<% unless item.subcategory.category.nil? %>
+<%= item.subcategory.category.name %>
+<% end %>
+<% end %></td>	
+
+    <td><%= item.name %></td>
+    <td><%= item.comments %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :destroy %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>
+

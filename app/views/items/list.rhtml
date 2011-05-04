@@ -1,0 +1,25 @@
+<html> 
+  <head>
+    <title>All Items</title>
+  </head>
+  <body>
+   
+  <h1>List of All Items</h1>
+  <table border="1">
+  <tr>
+  <td width="80%"><p align="center"><i><b>My Items</b></i></td> 
+    <td width="20%"><p align="center"><i><b>Comments</b></i></td>
+  </tr>
+    
+  <% @items.each do |item| %>
+  <tr>
+  <td><%= link_to item.name, :action => "show", :id => item.id %></td>
+  <td><%= item.comments %></td>
+  </tr>
+  <% end %> 
+  </table>
+  <p><%= link_to "Create new item", :action => "new" %></p>
+
+  </body> 
+</html>
+

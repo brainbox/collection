@@ -3,19 +3,27 @@
   <head>
      <title>Personal Collection Stop | <%= @title %></title>
     <%= csrf_meta_tag %>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 	<%= stylesheet_link_tag 'style', :media => 'screen' %>
   </head>
   <body>
     <body>
     <div class="container">
       <header>
-        <% pix = image_tag("rails.png", :alt => "logo") %>
+        <% pix = image_tag("banner.png", :alt => "logo") %>
 		<%= link_to pix, root_path %>
+		
         <nav class="round">
           <ul>
+		  <% if signed_in? %>
+		  <strong><%= current_user.name%></strong> is signed in
+		  <% end %> <br/><br/>
             <li><%= link_to "Home", root_path %></li>
 			<% if signed_in? %>
 			<li><%= link_to "Profile", current_user %></li>
+			 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
 			<% end %>
             <li><%= link_to "Contact", contact_path %></li>
 			<% if signed_in? %>
@@ -26,13 +34,15 @@
           </ul>
         </nav>
       </header>
-      <div class="innerContainer">
+	  <div class="innerContainer">
+      
 	  <% flash.each do |key, value| %>
           <div class="flash <%= key %>"><%= value %></div>
         <% end %>
         <%= yield %>
-     </div>
-	 	<%= debug(params) if Rails.env.development? %>
+     
+	 </div>
+	 	
     </div>
   </body>
 

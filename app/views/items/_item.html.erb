@@ -1,0 +1,18 @@
+
+<tr>
+  <td class="pretty-table"><%= item.name %></td>
+	<td class="pretty-table"><%= item.comments %></td>
+	<td class="pretty-table">
+	<% unless item.subcategory.nil? %>
+	<% unless item.subcategory.category.nil? %>
+	<%= item.subcategory.category.name %>
+	<% end %> <% end %> </td>
+	<td class="pretty-table">
+	<% unless item.subcategory.nil? %>
+	<%= item.subcategory.name %>
+	<% end %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+</tr>
+

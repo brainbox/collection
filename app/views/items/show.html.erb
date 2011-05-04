@@ -1,0 +1,38 @@
+<% if @item.nil? %>
+<p> You can not view Another users Item</p>
+
+<% else %>
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @item.comments %>
+</p>
+
+<p>
+  <b>Subcategory:</b>
+  <% unless @item.subcategory.nil? %>
+  <%= @item.subcategory.name %>
+  <% end %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @item.user.name %>
+</p>
+<br/>
+<% if can? :manage, @item %>
+<%= link_to 'Edit', edit_item_path(@item) %> <% end %> |
+<%= link_to 'Back', items_path %> |
+<%= link_to "Back To Proflie Page", current_user %>
+<%end%>
