@@ -1,10 +1,9 @@
+
+
 <% if @item.nil? %>
 <p> You can not view Another users Item</p>
 
 <% else %>
-
-
-
 
 
 <p id="notice"><%= notice %></p>
@@ -31,8 +30,8 @@
   <%= @item.user.name %>
 </p>
 <br/>
-<% if can? :manage, @item %>
-<%= link_to 'Edit', edit_item_path(@item) %> <% end %> |
+
+<%= link_to 'Edit', edit_item_path(@item) %>  |
 <%= link_to 'Back', items_path %> |
 <%= link_to "Back To Proflie Page", current_user %>
-<%end%>
+<% end %>

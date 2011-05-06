@@ -1,5 +1,7 @@
+<% if @user != current_user %>
+<p> You can not view Another users Category</p>
 
-
+<% else %>
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
@@ -42,3 +44,4 @@
 <input name = "key" type="input" />
 <input value="Send" type="submit"/>
 </form>
+<% end %>

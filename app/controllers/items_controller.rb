@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
 before_filter :authenticate
 
-
   # GET /items
   # GET /items.xml
   def index
@@ -13,20 +12,19 @@ before_filter :authenticate
     end
   end
   
-def search
-	
-  @items = Item.find_by_sql(['SELECT * FROM items WHERE name like ? AND user_id = ?', (params[:key] + '%'), current_user.id])
-  end 
-  
   def list
   @items = Item.find()
   end
   
+  def search
+	#@items = Item.order(params[:sort])
+  @items = Item.find_by_sql(['SELECT * FROM items WHERE name like ? AND user_id = ?', (params[:key] + '%'), current_user.id])
+  end 
+     
   # GET /items/1
   # GET /items/1.xml
   def show
 
-#    @item = current_user.items.find(params[:id])
 	@item = Item.find_by_id_and_user_id(params[:id], current_user.id)
 	
     respond_to do |format|
@@ -39,7 +37,7 @@ def search
   # GET /items/new.xml
   def new
     @item = Item.new
-
+	@subcategories = Subcategory.where(["user_id= ?", current_user.id.to_s])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @item }
@@ -67,7 +65,7 @@ def search
         format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
       end
     end
-  end
+    end
 
 
   # PUT /items/1

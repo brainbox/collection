@@ -17,8 +17,26 @@
   </div>
   <div class="field">
     <%= f.label :comments %><br />
-    <%= f.text_field :comments %>
+    <%= f.text_area :comments %>
   </div>
+  
+  <p><b>Subcategory:</b><br>
+
+<select name="item[subcategory_id]">
+
+<% @subcategories.each do |subcategory| %>
+
+<option value="<%= subcategory.id %>"
+
+<%= ' selected' if subcategory.id == @item.subcategory_id %>>
+
+<%= subcategory.name %>
+
+</option>
+
+<% end %>
+
+</select></p><br/>
   
   <div class="actions">
     <%= f.submit %>

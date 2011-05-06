@@ -26,7 +26,7 @@ before_filter :authenticate
   # GET /subcategories/new.xml
   def new
     @subcategory = Subcategory.new
-	@categories = Category.where(["user_id= ?", current_user.id.to_s])
+    @categories = Category.where(["user_id= ?", current_user.id.to_s])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @subcategory }
@@ -36,7 +36,7 @@ before_filter :authenticate
   # GET /subcategories/1/edit
   def edit
     @subcategory = Subcategory.find(params[:id])
-	@categories = Category.where(["user_id= ?", current_user.id.to_s])
+    @categories = Category.where(["user_id= ?", current_user.id.to_s])
   end
 
   # POST /subcategories

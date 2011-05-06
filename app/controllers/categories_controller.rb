@@ -21,24 +21,6 @@ before_filter :authenticate
       format.xml  { render :xml => @category }
     end
   end
-
-  # GET /categories/new
-  # GET /categories/new.xml
-  def new
-    @category = Category.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @category }
-    end
-  end
-
-  # GET /categories/1/edit
-  def edit
-    @category = Category.find(params[:id])
-	 
-  end
-
   # POST /categories
   # POST /categories.xml
   def create
@@ -71,6 +53,25 @@ before_filter :authenticate
     end
   end
 
+
+  # GET /categories/new
+  # GET /categories/new.xml
+  def new
+    @category = Category.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @category }
+    end
+  end
+
+  # GET /categories/1/edit
+  def edit
+    @category = Category.find(params[:id])
+	 
+  end
+
+  
   # DELETE /categories/1
   # DELETE /categories/1.xml
   def destroy
